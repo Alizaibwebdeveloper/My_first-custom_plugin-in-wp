@@ -25,6 +25,7 @@
   include plugin_dir_path(__FILE__) . 'first_plugin_shorcode.php';
   include plugin_dir_path(__FILE__) . 'inc/metaboxes.php';
   include plugin_dir_path(__FILE__) . 'inc/custom_post_type.php';
+  include plugin_dir_path(__FILE__) . 'inc/ajax.php';
 
 
 
@@ -32,15 +33,24 @@
 
  function first_plugin_the_title($title){
 
-  return "Your Title Hacked!";
+  return $title;
 
  }
 
  add_action('wp_enqueue_scripts', 'first_plugin_wp_enqueue_scripts');
+ add_action('wp_admin_enqueue_script','first_plugin_wp_enqueue_scripts');
 
 function first_plugin_wp_enqueue_scripts() {
+    wp_enqueue_script('jquery');
     wp_enqueue_style('first_plugin', plugin_dir_url(__FILE__) . "assets/css/style.css");
     wp_enqueue_script('first_plugin_script', plugin_dir_url(__FILE__) . "assets/js/custom.js", array(), '1.0.0', true);
+    // wp_localize_script()
+}
+
+function first_plugin_admin_wp_enqueue_scripts(){
+
+    wp_enqueue_script('first_plugin_script', plugin_dir_url(__FILE__) . "assets/js/custom.js", array(), '1.0.0', true);
+
 }
 
 
@@ -104,7 +114,7 @@ settings_fields('first_plugin_option_group');
 
 <label for="">setting one</label>
 
-<input type="text" name="first_plugin_option1" value="<?php echo esc_html(get_option('first_plugin_option1')); ?>">
+<input type="text" id="Ajax_form" name="first_plugin_option1" value="<?php echo esc_html(get_option('first_plugin_option1')); ?>">
 
 
 <?php

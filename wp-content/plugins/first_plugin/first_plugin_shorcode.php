@@ -9,13 +9,13 @@ add_action('init', 'first_plugin_init');
 
  }
 
- function first_plugin_my_shortcode($atts){
+ function first_plugin_my_shortcode($atts , $content =''){
 
     $atts = shortcode_atts(array(
         'message'=> " Hello world!"
     ),$atts,'test');
  
-    return $atts['message'];
+    return $content;
  }
 
 
