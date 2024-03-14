@@ -19,13 +19,16 @@
 
  defined('ABSPATH') || die("Sorry You cannot Access this folder Directerly");
 
-
+define('PLUGIN_PATH',plugin_dir_path(__FILE__));
+define('PLUGIN_URL',plugin_dir_url(__FILE__));
+define('PLUGIN_FILE',__FILE__);
 
  
   include plugin_dir_path(__FILE__) . 'first_plugin_shorcode.php';
   include plugin_dir_path(__FILE__) . 'inc/metaboxes.php';
   include plugin_dir_path(__FILE__) . 'inc/custom_post_type.php';
   include plugin_dir_path(__FILE__) . 'inc/ajax.php';
+  include plugin_dir_path(__FILE__) . 'inc/db.php';
 
 
 
@@ -124,6 +127,8 @@ submit_button('save changes');
 
 ?>
 </form>
+
+<?php  include plugin_dir_path(__FILE__) . 'inc/api.php';?>
 
 </div>
 

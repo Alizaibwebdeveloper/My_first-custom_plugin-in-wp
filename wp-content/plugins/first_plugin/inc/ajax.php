@@ -1,6 +1,8 @@
 
 <?php
 
+
+
 add_action('wp_ajax_my_ajax_action', 'first_plugin_ajax_action');
 
 function first_plugin_ajax_action() {

@@ -1,5 +1,7 @@
 <?php
 
+
+
 add_action('admin_init', 'first_plugin_add_metabox');
 
 function first_plugin_add_metabox() {
