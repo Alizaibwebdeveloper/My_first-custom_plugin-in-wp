@@ -5,19 +5,21 @@
     @package Ali zaib  custom theme.
 
 
-    */
+    */ 
+    
+
+    get_header();
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zaibi custom wordpress theme!</title>
-</head>
-<body>
-    <header>
+    <div class="content">
         
-    </header>
-</body>
-</html>
+     content
+
+    </div>
+
+    <?php
+
+    get_footer();
+    
+    
