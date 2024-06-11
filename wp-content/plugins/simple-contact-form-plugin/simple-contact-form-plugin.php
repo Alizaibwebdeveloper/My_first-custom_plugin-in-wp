@@ -82,8 +82,6 @@
         '1.0',
         true);
         
-
-      
     }
 
     public function load_contact_form_shortcode()

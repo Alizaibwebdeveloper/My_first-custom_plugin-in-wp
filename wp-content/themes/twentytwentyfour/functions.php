@@ -166,8 +166,6 @@ if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
 		 *
 		 * See https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/ for more info.
 		 */
-
-		 wp_enqueue_style('bs_ccs','https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 		wp_enqueue_block_style(
 			'core/button',
 			array(
