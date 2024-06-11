@@ -16,6 +16,8 @@
     <title>zaibi custom wordpress theme!</title>
 </head>
 <body>
-    Hello wordpress developer!
+    <header>
+        
+    </header>
 </body>
 </html>
