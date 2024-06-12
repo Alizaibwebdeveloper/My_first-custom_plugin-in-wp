@@ -2,7 +2,7 @@
     
 namespace ZAIBI_CUSTOM_THEME\Inc\Traits;
 
-trait singelton{
+trait singleton{
 
     public function __construct(){
 }
