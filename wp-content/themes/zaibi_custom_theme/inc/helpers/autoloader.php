@@ -2,10 +2,10 @@
 /**
  * Autoloader file for theme.
  *
- * @package Ali zaib custom theme
+ * @package zaibi custom theme
  */
 
-namespace ZAIBI_CUSTOM_THEME\Inc\Helpers;
+namespace AQUILA_THEME\Inc\Helpers;
 
 /**
  * Auto loader function.
@@ -68,7 +68,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php',  $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( AQUILA_DIR_PATH ), $directory, $file_name );
 
 	}
 
@@ -84,4 +84,4 @@ function autoloader( $resource = '' ) {
 
 }
 
-spl_autoload_register( '\ZAIBI_CUSTOM_THEME\Inc\Helpers\autoloader' );
+spl_autoload_register( '\AQUILA_THEME\Inc\Helpers\autoloader' );
