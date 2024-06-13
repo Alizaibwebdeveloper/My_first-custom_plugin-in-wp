@@ -15,6 +15,7 @@ $header_menu = wp_get_nav_menu_items($header_menu_id);
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <!-- Display the custom logo if it exists -->
+  <div class="container">
   <a class="navbar-brand" href="#">
     <?php if (has_custom_logo()) : ?>
       <div class="site-logo">
@@ -40,10 +41,10 @@ $header_menu = wp_get_nav_menu_items($header_menu_id);
           if (!$menu_item->menu_item_parent) : 
             // Get the child menu items for the current menu item
             $child_menu_items = get_child_menu_items($header_menu, $menu_item->ID);
-            $has_children = !empty($child_menu_items) && is_array($child_menu_items);
         ?>
             <?php 
-            // If the menu item has no children, display it as a regular nav item
+                     $has_children = !empty($child_menu_items) && is_array($child_menu_items);
+   // If the menu item has no children, display it as a regular nav item
             if (!$has_children) : ?>
               <li class="nav-item">
                 <a class="nav-link text-white" href="<?php echo esc_url($menu_item->url); ?>">
@@ -61,7 +62,7 @@ $header_menu = wp_get_nav_menu_items($header_menu_id);
                   <?php 
                   // Loop through each child menu item and display it
                   foreach ($child_menu_items as $child_menu) : ?>
-                    <a class="dropdown-item " href="<?php echo esc_url($child_menu->url); ?>">
+                    <a class="dropdown-item text-white" href="<?php echo esc_url($child_menu->url); ?>">
                       <?php echo esc_html($child_menu->title); ?>
                     </a>
                   <?php endforeach; ?>
@@ -79,4 +80,6 @@ $header_menu = wp_get_nav_menu_items($header_menu_id);
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+  </div>
+
 </nav>
