@@ -93,14 +93,68 @@ function zaibi_custom_theme_enqueue() {
 
     global $content_width;
     if (! isset( $content_width ) ) {
-        $content_width = 640;
+        $content_width = 1240;
     }
+
+
 
 
 }
 
 
+
+
+
 // Hook the enqueue function to the appropriate action
 add_action( 'wp_enqueue_scripts', 'zaibi_custom_theme_enqueue' );
 add_action( 'after_setup_theme', 'setup_theme' );
+
+
+// Creating and registering wordpress Dynamic  Menu
+
+function register_my_menus() {
+    register_nav_menus(
+      array(
+        'zaibi_header-menu' => esc_html__( 'Header Menu','zaibi-custom-theme' ),
+        'zaibi_Footer-menu' => esc_html__( 'Footer Menu','zaibi-custom-theme' ),
+       )
+     );
+
+
+   }
+   add_action( 'init', 'register_my_menus' );
+
+
+   function get_menu_id( $location){
+
+    // Get all the location
+    $locations = get_nav_menu_locations();
+    
+
+    $menu_id = $locations[$location];
+
+    return !empty($menu_id)? $menu_id: '';
+            
+        }
+
+        // function to get child menu items
+
+        function get_child_menu_items($menu_array, $parent_id) {
+            $child_menu_array = [];
+            
+            if (!empty($menu_array) && is_array($menu_array)) {
+                foreach ($menu_array as $menu) {
+                    if (intval($menu->menu_item_parent) === $parent_id) {
+                        $child_menu_array[] = $menu;
+                    }
+                }
+            }
+        
+            return $child_menu_array;
+        }
+        
+       
+
+
+
 
