@@ -16,7 +16,7 @@
         
      <?php
          
-    esc_html_e('Blog content','zaibi_custom_theme');
+    esc_html_e('single post','zaibi_custom_theme');
      ?>
 
     </div>
