@@ -2,7 +2,7 @@
 /*
  Main template file.
  @package Ali zaib custom theme.
-*/ 
+*/
 
 get_header();
 ?>
@@ -44,24 +44,9 @@ get_header();
                     <?php
                 }
 
-                ?>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-                        <header class="entry-header">
-                            <?php
-                            // Display post title as a link to the post
-                            the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-                            ?>
-                        </header>
-                        <div class="entry-content">
-                            <?php
-                            // Display the post content
-                            the_excerpt();
-                            ?>
-                        </div>
-                    </article>
-                </div>
-                <?php
+                // Include the template part for displaying posts
+                get_template_part('template_parts/content');
+                
                 $index++;
                 endwhile;
                 ?>
@@ -71,11 +56,22 @@ get_header();
         } else {
             // If no posts are found
             ?>
-            <div class="container">
-                <p><?php esc_html_e('No posts found.', 'ali-zaib-custom-theme'); ?></p>
-            </div>
             <?php
+                
+            
+            get_template_part('template_parts/content-none');
+            
         }
+        ?>
+        <?php
+            
+        
+        get_template_part('template_parts/content-none');
+
+        get_template_part('template_parts/template-tags');
+
+
+        
         ?>
     </main>
 </div>

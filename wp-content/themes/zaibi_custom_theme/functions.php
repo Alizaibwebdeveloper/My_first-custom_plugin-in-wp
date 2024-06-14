@@ -16,6 +16,8 @@ if (!defined('AQUILA_DIR_PATH')) {
 
 require_once AQUILA_DIR_PATH.'/inc/helpers/autoloader.php';
 
+
+
 function zaibi_get_theme_instace(){
 
     return \ZAIBI_CUSTOM_THEME\Inc\ZAIBI_THEME::get_instance();
@@ -152,9 +154,6 @@ function register_my_menus() {
         
             return $child_menu_array;
         }
-        
-       
-
 
 
 
