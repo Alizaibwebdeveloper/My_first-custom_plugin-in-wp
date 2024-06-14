@@ -5,15 +5,25 @@
 */
 
 get_header();
+
+// hide title on edit the page by using cuustom metabox
+
+$post_id= get_the_ID();
+$hide_title = get_post_meta($post_id,'hide_page_title',true);
+
 ?>
 
 <div id="primary">
     <main id="main" class="site-main mt-5" role="main">
+
+        
         <?php
         if (have_posts()) {
         ?>
         <div class="container">
             <?php
+
+            
             // Display page title for the blog page when not the front page
             if (is_home() && !is_front_page()) {
                 $posts_page_id = get_option('page_for_posts');
@@ -66,7 +76,6 @@ get_header();
         <?php
             
         
-        get_template_part('template_parts/content-none');
 
         get_template_part('template_parts/template-tags');
 
