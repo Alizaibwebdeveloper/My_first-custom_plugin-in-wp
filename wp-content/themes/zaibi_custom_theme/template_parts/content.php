@@ -28,6 +28,20 @@
                     <?php the_excerpt(); ?>
                 </div>
                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more</a>
+
+
+                <?php
+                    
+                ?>
+
+                
+
+                
+                <?php
+
+                
+                    
+                ?>
             </div>
         </div>
 

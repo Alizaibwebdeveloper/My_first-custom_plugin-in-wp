@@ -70,6 +70,9 @@ $heading_class = !empty ($hide_title) && 'yes' === $hide_title ? 'hide' : '';
             // If no posts are found
             ?>
             <?php
+
+
+
                 
             
             get_template_part('template_parts/content-none');
@@ -78,9 +81,12 @@ $heading_class = !empty ($hide_title) && 'yes' === $hide_title ? 'hide' : '';
         ?>
         <?php
             
+            
         
 
         get_template_part('template_parts/template-tags');
+
+        
 
 
         
@@ -89,5 +95,10 @@ $heading_class = !empty ($hide_title) && 'yes' === $hide_title ? 'hide' : '';
 </div>
 
 <?php
+
+
+
+
+
 get_footer();
 ?>
