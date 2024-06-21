@@ -11,6 +11,9 @@ get_header();
 $post_id= get_the_ID();
 $hide_title = get_post_meta($post_id,'hide_page_title',true);
 
+$heading_class = !empty ($hide_title) && 'yes' === $hide_title ? 'hide' : '';
+
+
 ?>
 
 <div id="primary">

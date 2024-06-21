@@ -30,6 +30,18 @@
                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more</a>
             </div>
         </div>
+
+        <div class="entry-meta mb-3">
+
+        <?php
+
+        zaibi_custom_posted_on();
+        zaibi_custom_posted_by();
+            
+        ?>
+
+
+        </div>
     </article>
 </div>
 

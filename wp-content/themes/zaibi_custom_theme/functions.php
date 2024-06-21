@@ -202,3 +202,63 @@ function zaibi_save_post_meta_data($post_id) {
     }
 }
 add_action('save_post', 'zaibi_save_post_meta_data');
+
+
+// function for getting a post meta date posted on 
+
+
+
+function zaibi_custom_posted_on(){
+
+
+    $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+    if (get_the_time('U')!== get_the_modified_time('U')) {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+    }
+
+    $time_string = sprintf(
+        $time_string,
+        esc_attr(get_the_date('c')),
+        esc_html(get_the_date()),
+        esc_attr(get_the_modified_date('c')),
+        esc_html(get_the_modified_date())
+    );
+
+    $posted_on = sprintf(
+        /* translators: %s: post date. */
+        esc_html_x('Posted on %s', 'post date', 'zaibi-custom-theme'),
+        '<a href="'. esc_url(get_permalink()). '" rel="bookmark">'. $time_string. '</a>'
+    );
+
+    echo '<span "posted_one text_secondary">'.$posted_on.'</span>';
+}
+
+//  function  for getmeta Data of custom post type Author
+
+function zaibi_custom_posted_by() {
+    // Fetch the author details
+    $author_id = get_the_author_meta('ID');
+    $author_name = get_the_author_meta('display_name');
+    $author_url = get_the_author_meta('user_url');
+    $author_description = get_the_author_meta('description');
+    $author_avatar = get_avatar($author_id, 100);
+    $author_link = get_author_posts_url($author_id);
+    
+    // Generate the author link
+    $author_link = '<a href="'. esc_url($author_link) .'">'. esc_html($author_name) .'</a>';
+
+    // Display the author information
+    echo '<div class="posted-by">';
+    echo $author_avatar; // Display the author avatar
+    echo '<div class="author-details">';
+    echo '<p class="author-name">by ' . $author_link .'</p>'; // Display the author name with a link to their posts
+    if ($author_description) {
+        echo '<p class="author-description">'. esc_html($author_description) .'</p>'; // Display the author description if available
+    }
+    echo '</div>';
+    echo '</div>';
+}
+
+
+
+
