@@ -80,16 +80,8 @@ $heading_class = !empty ($hide_title) && 'yes' === $hide_title ? 'hide' : '';
         }
         ?>
         <?php
-            
-            
-        
-
+           
         get_template_part('template_parts/template-tags');
-
-        
-
-
-        
         ?>
     </main>
 </div>
